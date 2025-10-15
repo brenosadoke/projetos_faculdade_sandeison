@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>EXERCICIO2_VUE</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ mensagem }}</h1>
+    <p>Nome: {{ nome }}</p>
+    <p>Curso: {{ curso }}</p>
+
+    <!-- Diretivas -->
+    <p v-if="mostrarMensagem">Esta mensagem aparece porque mostrarMensagem é true</p>
+    <p v-show="mostrarOutro">Esta aparece usando v-show</p>
+    <ul>
+      <li v-for="(item, index) in lista" :key="index">{{ item }}</li>
+    </ul>
+    <button v-on:click="mudarMensagem">Clique para mudar a mensagem</button>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        mensagem: 'Bem-vindo ao Vue.js!',
+        nome: 'Breno',
+        curso: 'Vue.js Básico',
+        mostrarMensagem: true,
+        mostrarOutro: true,
+        lista: ['Item 1', 'Item 2', 'Item 3']
+      },
+      methods: {
+        mudarMensagem() {
+          this.mensagem = 'Você clicou no botão!';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
